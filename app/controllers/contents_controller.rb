@@ -3,6 +3,8 @@ class ContentsController < ApplicationController
   respond_to :html
 
   before_filter :load_categories
+
+  ## PERMISSOES SOMENTE PARA USUARIOS LOGADOS
   before_filter :logged_in?, except: [:show, :index]
 
   def logged_in?

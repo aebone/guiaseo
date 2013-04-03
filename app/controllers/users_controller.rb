@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   before_filter :load_categories
+
+  ## PERMISSOES SOMENTE PARA USUARIOS LOGADOS
   before_filter :logged_in? 
 
   def logged_in?

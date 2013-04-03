@@ -3,7 +3,9 @@ class CategoriesController < ApplicationController
   respond_to :html
 
   before_filter :load_categories
-  before_filter :logged_in?, except: [:show]
+
+  ## PERMISSOES SOMENTE PARA USUARIOS LOGADOS
+  before_filter :logged_in?
 
   def logged_in?
     redirect_to root_path, notice: 'Vc n tem autorizacao pra ver isso' unless signed_in?
