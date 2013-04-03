@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
 
   before_filter :load_categories
-  before_filter :logged_in?
-
-  def logged_in?
-    redirect_to root_path, notice: 'Vc n tem autorizacao pra ver isso' unless signed_in?
-  end
 
   def index
     @users = User.all
