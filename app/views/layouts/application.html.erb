@@ -8,18 +8,32 @@
 </head>
 <body>
   <header>
-    <%= link_to 'Home', contents_path %>
-    <% @categories.each do |c| %>
-      <%= link_to(c.name,{:controller => "contents",:action => "index", :category_id => c.id}) %>
-    <% end %>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="/">Guiaseo</a>
+        <ul class="nav">
+          
+          <% @categories.each do |c| %>
+            <li><%= link_to(c.name,{:controller => "contents",:action => "index", :category_id => c.id}) %></li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
 
   <!-- mensagem -->
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
+
   </header>
 
+<div class="box">
+
 <%= yield %>
+
+</div>
   
   <footer>
 

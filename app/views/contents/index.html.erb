@@ -1,18 +1,17 @@
 <% @contents.each do |content| %>
-  <tr>
-    <td><%= content.name %></td>
-    <td><%= content.text %></td>
-    <td><%= content.category.name %></td>
+
+  <h2><%= content.name %></h2>
+  <br><br>
+  <p><%= content.text %></p>
+  <br><br><br>
 
     <% if signed_in? %>
 
-    <td><%= link_to 'Show', content %></td>
-    <td><%= link_to 'Edit', edit_content_path(content) %></td>
-    <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', content %></td>
+      <td><%= link_to 'Edit', edit_content_path(content) %></td>
+      <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
     <% end %>
-    
+
   </tr>
 <% end %>
-
-<br />
