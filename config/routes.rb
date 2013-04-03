@@ -7,6 +7,8 @@ Guiaseo::Application.routes.draw do
 
   resources :categories
 
+  resources :users
+
   root :to => 'contents#index'
 
   match '/admin', to: 'admin#index'
