@@ -1,10 +1,27 @@
-    <%= link_to 'Adicionar Conteúdo', new_content_path %>
-    <%= link_to 'Administrar Conteúdo', contents_path %>
-    <br>
-    <br>
-    <%= link_to 'Adicionar Categorias', categories_path %>
-    <%= link_to 'Administrar Categorias', categories_path %>
-    <br>
-    <br>
-    <%= link_to 'Adicionar Usuário', users_new_path %>
-    <%= link_to 'Administrar Usuário', users_path %>
+<% if signed_in? %>
+  <ul>
+    <li><%= link_to "Eu", current_user %></li>
+    <li>
+    <%= link_to "Sign out", signout_path, method: "delete" %>
+    <li>
+    <%= link_to "Me editar", edit_user_path(current_user) %>
+    </li>
+    </li>
+  </ul>
+
+<br>
+<br>
+<%= link_to 'Adicionar Conteúdo', new_content_path %>
+<%= link_to 'Administrar Conteúdo', contents_path %>
+<br>
+<br>
+<%= link_to 'Adicionar Categorias', categories_path %>
+<%= link_to 'Administrar Categorias', categories_path %>
+<br>
+<br>
+<%= link_to 'Adicionar Usuário', signup_path %>
+<%= link_to 'Administrar Usuário', users_path %>
+
+<% else %>
+  <li><%= link_to "Sign in", signin_path %></li>
+<% end %>
