@@ -1,4 +1,6 @@
 Guiaseo::Application.routes.draw do
+  get "admin/index"
+
   resources :contents
 
 
