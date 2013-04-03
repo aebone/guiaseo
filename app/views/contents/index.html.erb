@@ -1,9 +1,8 @@
 <% @contents.each do |content| %>
 
   <h2><%= content.name %></h2>
-  <br><br>
-  <p><%= content.text %></p>
-  <br><br><br>
+  <br>
+  <p><%= raw(content.text) %></p>
 
     <% if signed_in? %>
 
@@ -12,6 +11,6 @@
       <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
     <% end %>
-
-  </tr>
+    
+    <br><br><br>
 <% end %>
