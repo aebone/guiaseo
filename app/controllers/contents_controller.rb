@@ -1,10 +1,15 @@
 class ContentsController < ApplicationController
 
   respond_to :html
+
   before_filter :load_categories
 
   def index
-    @contents = Content.all
+    if !params[:category_id]
+      @contents = Content.all
+    else
+      @contents = Content.where("category_id = ?", params[:category_id])
+    end
   end
 
   # GET /contents/1
@@ -29,8 +34,10 @@ class ContentsController < ApplicationController
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.json { render json: @content, status: :created, location: @content }
       else
         format.html { render action: "new" }
+        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,10 +59,14 @@ class ContentsController < ApplicationController
   def destroy
     @content = Content.find(params[:id])
     @content.destroy
+
+    respond_to do |format|
+      format.html { redirect_to contents_url }
+    end
   end
 
   private
     def load_categories
-      @categories = Category.all? { |e|  }
+      @categories = Category.all
     end
 end

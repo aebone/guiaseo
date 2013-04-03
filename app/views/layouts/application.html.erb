@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <%= link_to 'Home', contents_path %>
+    <% @categories.each do |c| %>
+      <%= link_to(c.name,{:controller => "contents",:action => "index", :category_id => c.id}) %>
+    <% end %>
+  </header>
 
 <%= yield %>
+  
+  <footer>
+    <%= link_to 'Categorias Admin', categories_path %>
+    <%= link_to 'Novo Conteúdo', new_content_path %>
+  </footer>
 
 </body>
 </html>
