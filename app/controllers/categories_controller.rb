@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   before_filter :logged_in?
 
   def logged_in?
-    redirect_to root_path, notice: 'Vc n tem autorizacao pra ver isso' unless signed_in?
+    redirect_to root_path, notice: 'Voce nao tem autorizacao pra acessar esta area' unless signed_in?
   end
 
   def index

@@ -8,7 +8,6 @@
 </head>
 <body>
   <header>
-
     <div class="navbar">
       <div class="navbar-inner">
         <a class="brand" href="/">Guiaseo</a>
@@ -22,10 +21,10 @@
       </div>
     </div>
 
-  <!-- mensagem -->
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+    <!-- mensagem -->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
 
   </header>
 
@@ -36,7 +35,12 @@
 </div>
   
   <footer>
-
+  <hr>
+    <div class="box">
+      <% if signed_in? %>
+        <h4><%= link_to 'Admin', admin_path %></h4>
+      <% end %>
+    </div>
   </footer>
 
 </body>
