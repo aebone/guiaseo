@@ -15,7 +15,7 @@ class ContentsController < ApplicationController
     if !params[:category_id]
       @contents = Content.order("created_at ASC")
     else
-      @contents = Content.where("category_id = ?", params[:category_id])
+      @contents = Content.where("category_id = ?", params[:category_id]).order("created_at ASC")
     end
   end
 
