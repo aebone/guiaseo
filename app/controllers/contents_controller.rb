@@ -13,7 +13,7 @@ class ContentsController < ApplicationController
 
   def index
     if !params[:category_id]
-      @contents = Content.all(:order=> 'created_at desc')
+      @contents = Content.order("created_at ASC")
     else
       @contents = Content.where("category_id = ?", params[:category_id])
     end
