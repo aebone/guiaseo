@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13.rc1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'pg'
