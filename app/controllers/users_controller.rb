@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
-
+ 
   before_filter :load_categories
-
-  ## PERMISSOES SOMENTE PARA USUARIOS LOGADOS
-  before_filter :logged_in? 
-
-  def logged_in?
-    redirect_to root_path, notice: 'Voce nao tem autorizacao pra acessar esta area' unless signed_in?
-  end
 
   def index
     @users = User.all
@@ -54,9 +47,8 @@ class UsersController < ApplicationController
   end
 
   private
-
     def load_categories
       @categories = Category.all
-    end 
+    end
 
 end
